@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "C:/Xilinx/ise_projects/music_playing/divider_8.xst" -ofn "C:/Xilinx/ise_projects/music_playing/divider_8.syr" 

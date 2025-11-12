@@ -1,0 +1,10 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
+# Start of session at: Wed Nov 05 10:40:35 2025
+# Process ID: 4688
+# Log file: C:/Xilinx/ise_projects/music_playing/planAhead_run_3/planAhead.log
+# Journal file: C:/Xilinx/ise_projects/music_playing/planAhead_run_3/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source C:/Xilinx/ise_projects/music_playing/pa.fromNetlist.tcl

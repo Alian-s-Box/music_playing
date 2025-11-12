@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLCompiler" num="568" delta="unknown" >"C:/Xilinx/ise_projects/music_playing/tb_top.v" Line 224: Constant value is truncated to fit in &lt;<arg fmt="%d" index="1">4</arg>&gt; bits.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="687" delta="unknown" >"C:/Xilinx/ise_projects/music_playing/divider_12.v" Line 7: Illegal redeclaration of module &lt;<arg fmt="%s" index="1">divider_12</arg>&gt;.
+</msg>
+
+</messages>
+

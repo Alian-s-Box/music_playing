@@ -1,0 +1,627 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
+ 
+--> Reading design: top.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "top.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "top"
+Output Format                      : NGC
+Target Device                      : xc3s50an-5-tqg144
+
+---- Source Options
+Top Module Name                    : top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "simple_button_counter.v" in library work
+Compiling verilog file "freq_controller.v" in library work
+Module <simple_button_counter> compiled
+Compiling verilog file "divider_clk.v" in library work
+Module <freq_controller> compiled
+Compiling verilog file "divider_8.v" in library work
+Module <divider_clk> compiled
+Compiling verilog file "divider_12.v" in library work
+Module <divider_8> compiled
+Compiling verilog file "top.v" in library work
+Module <divider_12> compiled
+Module <top> compiled
+No errors in compilation
+Analysis of file <"top.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <top> in library <work>.
+
+Analyzing hierarchy for module <simple_button_counter> in library <work> with parameters.
+	SHIFT_DEPTH = "00000000000000000000000000010000"
+
+Analyzing hierarchy for module <divider_clk> in library <work>.
+
+Analyzing hierarchy for module <freq_controller> in library <work>.
+
+Analyzing hierarchy for module <divider_12> in library <work>.
+
+Analyzing hierarchy for module <divider_8> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <top>.
+Module <top> is correct for synthesis.
+ 
+Analyzing module <simple_button_counter> in library <work>.
+	SHIFT_DEPTH = 32'sb00000000000000000000000000010000
+Module <simple_button_counter> is correct for synthesis.
+ 
+Analyzing module <divider_clk> in library <work>.
+Module <divider_clk> is correct for synthesis.
+ 
+Analyzing module <freq_controller> in library <work>.
+Module <freq_controller> is correct for synthesis.
+ 
+Analyzing module <divider_12> in library <work>.
+Module <divider_12> is correct for synthesis.
+ 
+Analyzing module <divider_8> in library <work>.
+Module <divider_8> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <simple_button_counter>.
+    Related source file is "simple_button_counter.v".
+    Found 2-bit up counter for signal <count_out>.
+    Found 16-bit register for signal <key_shift_reg>.
+    Found 1-bit register for signal <key_stable_d1>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred  17 D-type flip-flop(s).
+Unit <simple_button_counter> synthesized.
+
+
+Synthesizing Unit <divider_clk>.
+    Related source file is "divider_clk.v".
+    Found 1-bit register for signal <clk_div_250k_reg>.
+    Found 17-bit up counter for signal <cnt_250k>.
+    Found 2-bit up counter for signal <cnt_4>.
+    Summary:
+	inferred   2 Counter(s).
+	inferred   1 D-type flip-flop(s).
+Unit <divider_clk> synthesized.
+
+
+Synthesizing Unit <freq_controller>.
+    Related source file is "freq_controller.v".
+WARNING:Xst:647 - Input <clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 128x4-bit ROM for signal <preset_8_out$mux0001> created at line 46.
+    Found 4x1-bit ROM for signal <led_table0>.
+    Found 32x15-bit ROM for signal <$rom0000>.
+    Found 4-bit 4-to-1 multiplexer for signal <preset_8_out>.
+    Found 11-bit 4-to-1 multiplexer for signal <max_preset_out>.
+    Found 7-bit up counter for signal <coeff_index>.
+    Summary:
+	inferred   3 ROM(s).
+	inferred   1 Counter(s).
+	inferred  15 Multiplexer(s).
+Unit <freq_controller> synthesized.
+
+
+Synthesizing Unit <divider_12>.
+    Related source file is "divider_12.v".
+    Found 1-bit register for signal <clk_div>.
+    Found 8-bit up counter for signal <counter>.
+    Found 11-bit comparator equal for signal <counter$cmp_eq0000> created at line 21.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+Unit <divider_12> synthesized.
+
+
+Synthesizing Unit <divider_8>.
+    Related source file is "divider_8.v".
+    Found 1-bit register for signal <clk_div>.
+    Found 33-bit subtractor for signal <$sub0000> created at line 38.
+    Found 3-bit up counter for signal <counter>.
+    Found 33-bit comparator equal for signal <counter$cmp_eq0000> created at line 38.
+    Found 4-bit register for signal <period_reg>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+Unit <divider_8> synthesized.
+
+
+Synthesizing Unit <top>.
+    Related source file is "top.v".
+Unit <top> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 3
+ 128x4-bit ROM                                         : 1
+ 32x15-bit ROM                                         : 1
+ 4x1-bit ROM                                           : 1
+# Adders/Subtractors                                   : 1
+ 33-bit subtractor                                     : 1
+# Counters                                             : 6
+ 17-bit up counter                                     : 1
+ 2-bit up counter                                      : 2
+ 3-bit up counter                                      : 1
+ 7-bit up counter                                      : 1
+ 8-bit up counter                                      : 1
+# Registers                                            : 6
+ 1-bit register                                        : 4
+ 16-bit register                                       : 1
+ 4-bit register                                        : 1
+# Comparators                                          : 2
+ 11-bit comparator equal                               : 1
+ 33-bit comparator equal                               : 1
+# Multiplexers                                         : 2
+ 11-bit 4-to-1 multiplexer                             : 1
+ 4-bit 4-to-1 multiplexer                              : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 3
+ 128x4-bit ROM                                         : 1
+ 32x15-bit ROM                                         : 1
+ 4x1-bit ROM                                           : 1
+# Adders/Subtractors                                   : 1
+ 33-bit subtractor                                     : 1
+# Counters                                             : 6
+ 17-bit up counter                                     : 1
+ 2-bit up counter                                      : 2
+ 3-bit up counter                                      : 1
+ 7-bit up counter                                      : 1
+ 8-bit up counter                                      : 1
+# Registers                                            : 24
+ Flip-Flops                                            : 24
+# Comparators                                          : 2
+ 11-bit comparator equal                               : 1
+ 33-bit comparator equal                               : 1
+# Multiplexers                                         : 2
+ 11-bit 4-to-1 multiplexer                             : 1
+ 4-bit 4-to-1 multiplexer                              : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:2677 - Node <period_reg_0> of sequential type is unconnected in block <divider_8>.
+
+Optimizing unit <top> ...
+
+Optimizing unit <simple_button_counter> ...
+
+Optimizing unit <freq_controller> ...
+
+Optimizing unit <divider_8> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 16.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 62
+ Flip-Flops                                            : 62
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : top.ngr
+Top Level Output File Name         : top
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 7
+
+Cell Usage :
+# BELS                             : 260
+#      GND                         : 1
+#      INV                         : 8
+#      LUT1                        : 16
+#      LUT2                        : 35
+#      LUT3                        : 35
+#      LUT3_D                      : 1
+#      LUT4                        : 88
+#      LUT4_D                      : 2
+#      MUXCY                       : 28
+#      MUXF5                       : 19
+#      MUXF6                       : 1
+#      VCC                         : 1
+#      XORCY                       : 25
+# FlipFlops/Latches                : 62
+#      FDC                         : 40
+#      FDCE                        : 5
+#      FDP                         : 17
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 6
+#      IBUF                        : 2
+#      OBUF                        : 4
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s50antqg144-5 
+
+ Number of Slices:                       98  out of    704    13%  
+ Number of Slice Flip Flops:             62  out of   1408     4%  
+ Number of 4 input LUTs:                185  out of   1408    13%  
+ Number of IOs:                           7
+ Number of bonded IOBs:                   7  out of    108     6%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+--------------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)          | Load  |
+-----------------------------------+--------------------------------+-------+
+clk                                | BUFGP                          | 39    |
+u_clk_divider/cnt_4_1              | NONE(u_divider_12/clk_div)     | 9     |
+u_clk_divider/clk_div_250k_reg     | NONE(u_freq_ctrl/coeff_index_6)| 7     |
+u_divider_12/clk_div               | NONE(u_divider_8/counter_2)    | 7     |
+-----------------------------------+--------------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------------+-----------------------------------+-------+
+Control Signal                           | Buffer(FF name)                   | Load  |
+-----------------------------------------+-----------------------------------+-------+
+rst_n_inv(u_freq_ctrl/rst_n_inv1_INV_0:O)| NONE(u_button_counter/count_out_0)| 62    |
+-----------------------------------------+-----------------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 5.530ns (Maximum Frequency: 180.833MHz)
+   Minimum input arrival time before clock: 1.378ns
+   Maximum output required time after clock: 6.876ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 4.813ns (frequency: 207.773MHz)
+  Total number of paths / destination ports: 532 / 41
+-------------------------------------------------------------------------
+Delay:               4.813ns (Levels of Logic = 18)
+  Source:            u_clk_divider/cnt_250k_1 (FF)
+  Destination:       u_clk_divider/cnt_250k_16 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: u_clk_divider/cnt_250k_1 to u_clk_divider/cnt_250k_16
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              2   0.495   0.488  u_clk_divider/cnt_250k_1 (u_clk_divider/cnt_250k_1)
+     LUT1:I0->O            1   0.561   0.000  u_clk_divider/Mcount_cnt_250k_cy<1>_rt (u_clk_divider/Mcount_cnt_250k_cy<1>_rt)
+     MUXCY:S->O            1   0.523   0.000  u_clk_divider/Mcount_cnt_250k_cy<1> (u_clk_divider/Mcount_cnt_250k_cy<1>)
+     MUXCY:CI->O           1   0.065   0.000  u_clk_divider/Mcount_cnt_250k_cy<2> (u_clk_divider/Mcount_cnt_250k_cy<2>)
+     MUXCY:CI->O           1   0.065   0.000  u_clk_divider/Mcount_cnt_250k_cy<3> (u_clk_divider/Mcount_cnt_250k_cy<3>)
+     MUXCY:CI->O           1   0.065   0.000  u_clk_divider/Mcount_cnt_250k_cy<4> (u_clk_divider/Mcount_cnt_250k_cy<4>)
+     MUXCY:CI->O           1   0.065   0.000  u_clk_divider/Mcount_cnt_250k_cy<5> (u_clk_divider/Mcount_cnt_250k_cy<5>)
+     MUXCY:CI->O           1   0.065   0.000  u_clk_divider/Mcount_cnt_250k_cy<6> (u_clk_divider/Mcount_cnt_250k_cy<6>)
+     MUXCY:CI->O           1   0.065   0.000  u_clk_divider/Mcount_cnt_250k_cy<7> (u_clk_divider/Mcount_cnt_250k_cy<7>)
+     MUXCY:CI->O           1   0.065   0.000  u_clk_divider/Mcount_cnt_250k_cy<8> (u_clk_divider/Mcount_cnt_250k_cy<8>)
+     MUXCY:CI->O           1   0.065   0.000  u_clk_divider/Mcount_cnt_250k_cy<9> (u_clk_divider/Mcount_cnt_250k_cy<9>)
+     MUXCY:CI->O           1   0.065   0.000  u_clk_divider/Mcount_cnt_250k_cy<10> (u_clk_divider/Mcount_cnt_250k_cy<10>)
+     MUXCY:CI->O           1   0.065   0.000  u_clk_divider/Mcount_cnt_250k_cy<11> (u_clk_divider/Mcount_cnt_250k_cy<11>)
+     MUXCY:CI->O           1   0.065   0.000  u_clk_divider/Mcount_cnt_250k_cy<12> (u_clk_divider/Mcount_cnt_250k_cy<12>)
+     MUXCY:CI->O           1   0.065   0.000  u_clk_divider/Mcount_cnt_250k_cy<13> (u_clk_divider/Mcount_cnt_250k_cy<13>)
+     MUXCY:CI->O           1   0.065   0.000  u_clk_divider/Mcount_cnt_250k_cy<14> (u_clk_divider/Mcount_cnt_250k_cy<14>)
+     MUXCY:CI->O           0   0.065   0.000  u_clk_divider/Mcount_cnt_250k_cy<15> (u_clk_divider/Mcount_cnt_250k_cy<15>)
+     XORCY:CI->O           1   0.654   0.423  u_clk_divider/Mcount_cnt_250k_xor<16> (Result<16>)
+     LUT2:I1->O            1   0.562   0.000  u_clk_divider/Mcount_cnt_250k_eqn_161 (u_clk_divider/Mcount_cnt_250k_eqn_16)
+     FDC:D                     0.197          u_clk_divider/cnt_250k_16
+    ----------------------------------------
+    Total                      4.813ns (3.902ns logic, 0.911ns route)
+                                       (81.1% logic, 18.9% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'u_clk_divider/cnt_4_1'
+  Clock period: 5.530ns (frequency: 180.833MHz)
+  Total number of paths / destination ports: 397 / 10
+-------------------------------------------------------------------------
+Delay:               5.530ns (Levels of Logic = 11)
+  Source:            u_divider_12/counter_1 (FF)
+  Destination:       u_divider_12/counter_7 (FF)
+  Source Clock:      u_clk_divider/cnt_4_1 rising
+  Destination Clock: u_clk_divider/cnt_4_1 rising
+
+  Data Path: u_divider_12/counter_1 to u_divider_12/counter_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              2   0.495   0.403  u_divider_12/counter_1 (u_divider_12/counter_1)
+     LUT3_D:I2->O          1   0.561   0.465  u_divider_12/counter_cmp_eq000088 (u_divider_12/counter_cmp_eq000088)
+     LUT4:I0->O            9   0.561   0.720  u_divider_12/counter_cmp_eq00008105 (u_divider_12/counter_cmp_eq0000)
+     LUT3:I2->O            1   0.561   0.000  u_divider_12/Mcount_counter_lut<0> (u_divider_12/Mcount_counter_lut<0>)
+     MUXCY:S->O            1   0.523   0.000  u_divider_12/Mcount_counter_cy<0> (u_divider_12/Mcount_counter_cy<0>)
+     MUXCY:CI->O           1   0.065   0.000  u_divider_12/Mcount_counter_cy<1> (u_divider_12/Mcount_counter_cy<1>)
+     MUXCY:CI->O           1   0.065   0.000  u_divider_12/Mcount_counter_cy<2> (u_divider_12/Mcount_counter_cy<2>)
+     MUXCY:CI->O           1   0.065   0.000  u_divider_12/Mcount_counter_cy<3> (u_divider_12/Mcount_counter_cy<3>)
+     MUXCY:CI->O           1   0.065   0.000  u_divider_12/Mcount_counter_cy<4> (u_divider_12/Mcount_counter_cy<4>)
+     MUXCY:CI->O           1   0.065   0.000  u_divider_12/Mcount_counter_cy<5> (u_divider_12/Mcount_counter_cy<5>)
+     MUXCY:CI->O           0   0.065   0.000  u_divider_12/Mcount_counter_cy<6> (u_divider_12/Mcount_counter_cy<6>)
+     XORCY:CI->O           1   0.654   0.000  u_divider_12/Mcount_counter_xor<7> (u_divider_12/Mcount_counter7)
+     FDC:D                     0.197          u_divider_12/counter_7
+    ----------------------------------------
+    Total                      5.530ns (3.942ns logic, 1.588ns route)
+                                       (71.3% logic, 28.7% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'u_clk_divider/clk_div_250k_reg'
+  Clock period: 3.445ns (frequency: 290.272MHz)
+  Total number of paths / destination ports: 28 / 7
+-------------------------------------------------------------------------
+Delay:               3.445ns (Levels of Logic = 2)
+  Source:            u_freq_ctrl/coeff_index_3 (FF)
+  Destination:       u_freq_ctrl/coeff_index_6 (FF)
+  Source Clock:      u_clk_divider/clk_div_250k_reg rising
+  Destination Clock: u_clk_divider/clk_div_250k_reg rising
+
+  Data Path: u_freq_ctrl/coeff_index_3 to u_freq_ctrl/coeff_index_6
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             44   0.495   1.184  u_freq_ctrl/coeff_index_3 (u_freq_ctrl/coeff_index_3)
+     LUT4_D:I0->O          2   0.561   0.446  u_freq_ctrl/Mcount_coeff_index_cy<3>11 (u_freq_ctrl/Mcount_coeff_index_cy<3>)
+     LUT2:I1->O            1   0.562   0.000  u_freq_ctrl/Mcount_coeff_index_xor<4>11 (u_freq_ctrl/Result<4>)
+     FDC:D                     0.197          u_freq_ctrl/coeff_index_4
+    ----------------------------------------
+    Total                      3.445ns (1.815ns logic, 1.630ns route)
+                                       (52.7% logic, 47.3% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'u_divider_12/clk_div'
+  Clock period: 3.179ns (frequency: 314.584MHz)
+  Total number of paths / destination ports: 36 / 5
+-------------------------------------------------------------------------
+Delay:               3.179ns (Levels of Logic = 2)
+  Source:            u_divider_8/counter_1 (FF)
+  Destination:       u_divider_8/clk_div (FF)
+  Source Clock:      u_divider_12/clk_div rising
+  Destination Clock: u_divider_12/clk_div rising
+
+  Data Path: u_divider_8/counter_1 to u_divider_8/clk_div
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              7   0.495   0.668  u_divider_8/counter_1 (u_divider_8/counter_1)
+     LUT4:I1->O            1   0.562   0.380  u_divider_8/counter_cmp_eq00005_SW1 (N7)
+     LUT4:I2->O            1   0.561   0.357  u_divider_8/counter_cmp_eq00005 (u_divider_8/counter_cmp_eq0000)
+     FDCE:CE                   0.156          u_divider_8/clk_div
+    ----------------------------------------
+    Total                      3.179ns (1.774ns logic, 1.405ns route)
+                                       (55.8% logic, 44.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              1.378ns (Levels of Logic = 1)
+  Source:            key_in (PAD)
+  Destination:       u_button_counter/key_shift_reg_0 (FF)
+  Destination Clock: clk rising
+
+  Data Path: key_in to u_button_counter/key_shift_reg_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   0.824   0.357  key_in_IBUF (key_in_IBUF)
+     FDP:D                     0.197          u_button_counter/key_shift_reg_0
+    ----------------------------------------
+    Total                      1.378ns (1.021ns logic, 0.357ns route)
+                                       (74.1% logic, 25.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'u_divider_12/clk_div'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              5.271ns (Levels of Logic = 1)
+  Source:            u_divider_8/clk_div (FF)
+  Destination:       final_clk_out (PAD)
+  Source Clock:      u_divider_12/clk_div rising
+
+  Data Path: u_divider_8/clk_div to final_clk_out
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             2   0.495   0.380  u_divider_8/clk_div (u_divider_8/clk_div)
+     OBUF:I->O                 4.396          final_clk_out_OBUF (final_clk_out)
+    ----------------------------------------
+    Total                      5.271ns (4.891ns logic, 0.380ns route)
+                                       (92.8% logic, 7.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 6 / 3
+-------------------------------------------------------------------------
+Offset:              6.876ns (Levels of Logic = 2)
+  Source:            u_button_counter/count_out_0 (FF)
+  Destination:       led_mode0 (PAD)
+  Source Clock:      clk rising
+
+  Data Path: u_button_counter/count_out_0 to led_mode0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q            21   0.495   1.067  u_button_counter/count_out_0 (u_button_counter/count_out_0)
+     LUT2:I0->O            1   0.561   0.357  u_freq_ctrl/led_table2_cmp_eq00001 (led_mode2_OBUF)
+     OBUF:I->O                 4.396          led_mode2_OBUF (led_mode2)
+    ----------------------------------------
+    Total                      6.876ns (5.452ns logic, 1.424ns route)
+                                       (79.3% logic, 20.7% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 3.00 secs
+Total CPU time to Xst completion: 3.39 secs
+ 
+--> 
+
+Total memory usage is 4482676 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    4 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+

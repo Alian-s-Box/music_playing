@@ -1,0 +1,14 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Mon Nov 10 08:51:20 2025
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "final_clk_out" LOCATE = SITE "P3" LEVEL 1;
+COMP "clk" LOCATE = SITE "P125" LEVEL 1;
+COMP "key_in" LOCATE = SITE "P139" LEVEL 1;
+COMP "led_mode0" LOCATE = SITE "P4" LEVEL 1;
+COMP "led_mode1" LOCATE = SITE "P5" LEVEL 1;
+COMP "led_mode2" LOCATE = SITE "P6" LEVEL 1;
+COMP "rst_n" LOCATE = SITE "P135" LEVEL 1;
+SCHEMATIC END;
+

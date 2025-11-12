@@ -1,0 +1,5 @@
+set -tmpdir "C:/Xilinx/ise_projects/music_playing/xst/projnav.tmp"
+set -xsthdpdir "C:/Xilinx/ise_projects/music_playing/xst"
+elaborate
+-ifn freq_controller.prj
+-ifmt mixed

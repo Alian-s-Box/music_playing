@@ -1,0 +1,47 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to C:/Xilinx/ise_projects/music_playing/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.05 secs
+ 
+--> Parameter xsthdpdir set to C:/Xilinx/ise_projects/music_playing/xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.05 secs
+ 
+--> WARNING:Xst:3164 - Option "-debug" found multiple times in the command line. Only the first occurence is considered.
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "simple_button_counter.v" in library work
+Compiling verilog file "freq_controller.v" in library work
+Module <simple_button_counter> compiled
+Compiling verilog file "divider_clk.v" in library work
+Module <freq_controller> compiled
+Compiling verilog file "divider_8.v" in library work
+Module <divider_clk> compiled
+Compiling verilog file "divider_12.v" in library work
+Module <divider_8> compiled
+Compiling verilog file "top.v" in library work
+Module <divider_12> compiled
+Module <top> compiled
+No errors in compilation
+Analysis of file <"top_module.prj"> succeeded.
+ 
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.16 secs
+ 
+--> 
+
+Total memory usage is 4436836 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

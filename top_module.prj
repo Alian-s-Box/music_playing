@@ -1,0 +1,6 @@
+verilog work "simple_button_counter.v"
+verilog work "freq_controller.v"
+verilog work "divider_clk.v"
+verilog work "divider_8.v"
+verilog work "divider_12.v"
+verilog work "top.v"

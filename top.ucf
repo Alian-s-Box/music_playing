@@ -1,0 +1,20 @@
+
+# PlanAhead Generated physical constraints 
+
+NET "clk" LOC = P125;
+NET "final_clk_out" LOC = P3;
+NET "key_in" LOC = P139;
+NET "led_mode0" LOC = P4;
+NET "led_mode1" LOC = P5;
+NET "led_mode2" LOC = P6;
+NET "rst_n" LOC = P135;
+
+# PlanAhead Generated IO constraints 
+
+NET "clk" IOSTANDARD = LVCMOS33;
+NET "final_clk_out" IOSTANDARD = LVCMOS33;
+NET "key_in" IOSTANDARD = LVCMOS33;
+NET "led_mode0" IOSTANDARD = LVCMOS33;
+NET "led_mode1" IOSTANDARD = LVCMOS33;
+NET "led_mode2" IOSTANDARD = LVCMOS33;
+NET "rst_n" IOSTANDARD = LVCMOS33;

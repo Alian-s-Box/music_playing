@@ -1,0 +1,28 @@
+Command line:
+   tb_divider_clk_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  56086
+
+Wed Nov 05 12:35:02 2025
+
+
+ Elaboration Time: 0.078125 sec
+
+ Current Memory Usage: 4842.95 Meg
+
+ Total Signals          : 17
+ Total Nets             : 17
+ Total Signal Drivers   : 9
+ Total Blocks           : 3
+ Total Primitive Blocks : 2
+ Total Processes        : 15
+ Total Traceable Variables  : 24
+ Total Scalar Nets and Variables : 121
+
+ Total Simulation Time: 1.42188 sec
+
+ Current Memory Usage: 4842.95 Meg
+
+Wed Nov 05 12:35:24 2025
+

@@ -1,0 +1,10 @@
+Command line:
+   tb_freq_controller_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  63565
+
+Thu Nov 06 16:43:37 2025
+
+
+ Elaboration Time: 0.03125 sec

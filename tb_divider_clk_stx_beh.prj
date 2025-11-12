@@ -1,0 +1,6 @@
+verilog isim_temp "top.v"
+verilog isim_temp "tb_top.v"
+verilog isim_temp "tb_divider_clk.v"
+verilog isim_temp "simple_button_counter.v"
+verilog isim_temp "freq_controller.v"
+verilog isim_temp "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v"
